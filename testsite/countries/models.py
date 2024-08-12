@@ -40,3 +40,6 @@ class Medals(models.Model):
     country = models.ForeignKey(
         "Country", on_delete=models.CASCADE, related_name="medals"
     )
+
+    def __str__(self):
+        return f"{self.country.name} - {self.get_type_display()} - {self.count}"
