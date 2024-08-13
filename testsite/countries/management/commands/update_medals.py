@@ -36,3 +36,4 @@ class Command(BaseCommand):
                 Medals.objects.update_or_create(
                     country=country, type="br", defaults={"count": row["Bronze"]}
                 )
+        print("\nImport Complete")

@@ -17,6 +17,7 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        count = 0
         with open(options["input_file"]) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
@@ -27,3 +28,6 @@ class Command(BaseCommand):
                 country = Country.objects.get(alpha3Code=row["alpha3Code"])
                 country.population = int(row["population"])
                 country.save()
+                count += 1
+
+        print(f"{count} populations updated.")

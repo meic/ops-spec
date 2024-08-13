@@ -33,3 +33,5 @@ class Command(BaseCommand):
             writer = csv.writer(csvfile)
             writer.writerow(headings)
             writer.writerows(data)
+
+        print(f"Stats exported to: {options['output_file']}")
